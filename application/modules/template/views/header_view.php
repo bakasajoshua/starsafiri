@@ -12,9 +12,6 @@
 <meta name="Resource-type" content="Document">
 <!-- Attaching the aadverntsafaris Icon logo -->
 <link rel="shortcut icon" type="img/x-icon" href="<?php echo base_url() .'assets/icons/afric.jpg'?>"/>
-
-<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
-<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
 <!-- dynamic files includes all the .js .css plugins-->
  	<?php      	
 		$this->load->view('utils/dynamic_files');//..............this is to autoload the dynamic css and js files
@@ -27,7 +24,4 @@
 
 <body>
 
-<!-- Start of the Page Contents -->
-<div class="container-fluid">
-<!-- <div class="hero">  -->
-<!-- Floating Multiline Textfield -->
+

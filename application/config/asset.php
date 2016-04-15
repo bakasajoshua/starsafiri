@@ -63,34 +63,29 @@ $config['plugin_path']		=	'assets/plugins/';
 $config['files_path']		=	'assets/files/';
 
 $config['css_files']		=	array(
-									array('title' => 'template'		,	'file'	=>	'template.css'),
-									array('title' => 'menu'			,	'file'	=>	'menu.css'),
-									array('title' => 'footer'		,	'file'	=>	'footer.css'),
-
-									array('title' => 'carousel'		,	'file'	=>	'carousel.css'),
-									array('title' => 'fonts'		,	'file'	=>	'fonts.css')
+									array('title' => 'custom'		,	'file'	=>	'custom.css')
 
 									);
 $config['js_files']			=	array(
 									array('title'	=>	'current_date' 	,	'file'	=>	'date_function.js')
 								);
 $config['plugin_js_files']	=	array(
-									array('title'	=> 	'jquery'		,	'file'	=>	'jquery/jquery-1.11.3.min.js'),
-									array('title'	=> 'jsCombo'		,	'file'	=>	'jsCombo-master/base.js'),
-									array('title'	=> 'load_jsCombo'	,	'file'	=>	'jsCombo-master/load_jsCombo.js'),
-
+									array('title'	=> 'jquery'		,	'file'	=>	'jquery/jquery-1.11.3.min.js'),
 									array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/js/bootstrap.js'),
 									array('title'	=> 'materialize'	,	'file'	=>	'materialize/js/materialize.min.js'),
+
 									array('title'	=> 'quickview'		,	'file'	=>	'quickview/js/modernizr.js'),
 									array('title'	=> 'quickview'		,	'file'	=>	'quickview/js/velocity.min.js'),
 									array('title'	=> 'quickview'		,	'file'	=>	'quickview/js/main.js')
 
 								);	
 $config['plugin_css_files']	=	array(
-									array('title'	=> 'jsCombo_css'	,	'file'	=>	'jsCombo-master/main.css'),
-									
+									array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/css/bootstrap.min.css'),
+									array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/css/bootstrap-theme-min.css'),
 									array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/css/bootstrap.css'),
+									array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/css/bootstrap-theme.css'),
 									array('title'	=> 'materialize'	,	'file'	=>	'materialize/css/materialize.min.css'),
+
 									array('title'	=> 'quickview'		,	'file'	=>	'quickview/css/reset.css'),
 									array('title'	=> 'quickview'		,	'file'	=>	'quickview/css/style.css')
 									
