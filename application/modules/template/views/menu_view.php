@@ -32,9 +32,9 @@
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#1dcb6c;"><b>Login</b> <span class="caret"></span></a> -->
-            <button type="button" class="btn btn-default navbar-btn" data-toggle="dropdown" style="color:#1dcb6c;"><b>Log in</b> <span class="caret"></span></a></button>
+        <!-- If session is Not Set -->
+         <!--  <li class="dropdown">
+            <button type="button" class="btn btn-default navbar-btn" data-toggle="dropdown" style="color:#1dcb6c;"><span class="glyphicon glyphicon-user"></span> <b>Log in</b> <span class="caret"></span></a></button>
               <ul id="login-dp" class="dropdown-menu">
                   <li>
                        <div class="row">
@@ -71,7 +71,24 @@
                        </div>
                   </li>
               </ul>
-          </li>
+                </li> -->
+        <!-- End of IF session is set -->
+        
+              <!-- if the session is set -->
+                <li>
+                  <div class="btn-group navbar-btn">
+                    <button class="btn btn-info"><span class="glyphicon glyphicon-user"></span> <?php echo "Michael Kamau"?></button>
+                    <button data-toggle="dropdown" class="btn btn-info dropdown-toggle"><span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#"><span class="glyphicon glyphicon-off"></span> Log Out</a></li>
+                      <li class="divider"></li>
+                      <li class="dropdown-header" style="color:#52bcdc; font-weight: bold;">Advanced Options</li>
+                      <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Manage my Account</a></li>
+                      <li><a href="#"><span class="glyphicon glyphicon-trash"></span> Delete Account</a></li>
+                    </ul>
+                  </div>
+                </li>
+              <!-- End of if session is Set -->
             </ul>
           </div><!--/.nav-collapse -->
         </div>
