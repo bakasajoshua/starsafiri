@@ -14,7 +14,7 @@ class home extends MY_Controller {
 
 		$data['title']="Homepage";
 
-		$data = array_merge($data,$this->load_libraries(array('custom','bootstrap','bootstrapmin')));
+		$data = array_merge($data,$this->load_libraries(array('custom','carousel','bootstrap','bootstrapmin')));
 		$this->template($data);
 	}
 

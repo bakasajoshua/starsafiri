@@ -1,0 +1,5 @@
+img
+
+horizontal = 1500 +
+
+vertical = 550 +
