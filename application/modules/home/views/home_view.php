@@ -1,32 +1,50 @@
-<!-- Start of the Page Contents -->
-<div class="container">
-<!-- Floating Multiline Textfield -->
-
-<!-- Main component for a primary marketing message or call to action -->
-<div class="jumbotron row">
-<div class="col-md-9">
-  <h1>Navbar example</h1>
-    <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-    <p>
-        <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-    </p>
-</div>
-<div class="col-md-3" style="background-color: cyan; margin: 0;">mama</div>
-</div>
-
-<!-- components for display -->
-<div class="row">
-	<div class="col-xs-6 col-sm-3">
-		<img data-src="holder.js/100%x180/sky" alt="100%x180" src="" style="height: 180px; width: 100%; display: block;">
-	</div>
-	<div class="col-xs-6 col-sm-3">
-		<img data-src="holder.js/100%x180/sky" alt="100%x180" src="" style="height: 180px; width: 100%; display: block;">
-	</div>
-	<div class="col-xs-6 col-sm-3">
-		<img data-src="holder.js/100%x180/sky" alt="100%x180" src="" style="height: 180px; width: 100%; display: block;">
-	</div>
-	<div class="col-xs-6 col-sm-3">
-		<img data-src="holder.js/100%x180/sky" alt="100%x180" src="" style="height: 180px; width: 100%; display: block;">
-	</div>
-
-</div>
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide" src="assets/slides/slide-04.jpg" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 style="color:#1dcb6c;">Plan your next Adventure.</h1>
+              <p>Access and Share information on upcoming events: Holiday deals,trips and adventures.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="second-slide" src="assets/slides/slide-05.jpg" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Relate</h1>
+              <p>Connect with other travel enthusiasts, share memories and stories of your travel expriences</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="third-slide" src="assets/slides/slide-06.jpg" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 style="color:#1dcb6c;">Share Your Experience</h1>
+              <p>Share your travel experience: Holidays & vacations, getaways and adventure destinations.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><!-- /.carousel -->
