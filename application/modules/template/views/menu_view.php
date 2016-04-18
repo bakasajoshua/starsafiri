@@ -73,7 +73,7 @@
               </ul>
                 </li> -->
         <!-- End of IF session is set -->
-        
+
               <!-- if the session is set -->
                 <li>
                   <div class="btn-group navbar-btn">
@@ -83,7 +83,7 @@
                       <li><a href="#"><span class="glyphicon glyphicon-off"></span> Log Out</a></li>
                       <li class="divider"></li>
                       <li class="dropdown-header" style="color:#52bcdc; font-weight: bold;">Advanced Options</li>
-                      <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Manage my Account</a></li>
+                      <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Account Settings</a></li>
                       <li><a href="#"><span class="glyphicon glyphicon-trash"></span> Delete Account</a></li>
                     </ul>
                   </div>
