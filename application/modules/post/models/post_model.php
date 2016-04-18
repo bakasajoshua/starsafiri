@@ -122,6 +122,9 @@ class post_model extends MY_Model{
 						            <label for="comment" class="control-label">Comment:</label>
 						            <input type="text" class="form-control" name="comment" id="comment" placeholder="Write a comment...">
 						         </div>
+						         <div class="form-group">
+						            <button class="btn btn-primary" id="comment_button">Comment</button>
+						         </div>
 			        		</div>
 			        		<div class="col-md-6">
 			        		<div class="page-header">
