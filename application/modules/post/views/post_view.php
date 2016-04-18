@@ -184,6 +184,11 @@
 		    var link = $(e.relatedTarget);
 		    $(this).find(".modal-body").load(link.attr("href"));
 		});
+
+		$('#comment_button').click(function(){
+			comment = $('#comment').val();
+			
+		});
     });
 	
   function like_button_clicked(id)

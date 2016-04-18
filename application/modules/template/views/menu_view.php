@@ -17,12 +17,13 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+
               <?php if($this->session->userdata('is_logged_in')) {?>
               <li><a href="<?php echo base_url();?>post">Posts</a></li>
               <?php } ?>
               <li><a href="#events">Upcoming Events</a></li>
-              <li><a href="#about">About us</a></li>
-              <li><a href="#contact"><span class="glyphicon glyphicon-phone-alt"></span> Contact us</a></li>
+              <li><a href="" data-toggle="modal" data-target="#about">About us</a></li>
+              <li><a href="" data-toggle="modal" data-target="#contact"><span class="glyphicon glyphicon-phone-alt"></span> Contact us</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#1dcb6c; font-weight: bold;">Advertise + <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -103,6 +104,73 @@
 
       </div>
 </div>
+<!-- HomePage Modals -->
+
+<!-- Contact -->
+  <div class="modal fade" id="contact" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Contact us </h4>
+        </div>
+        <div class="modal-body">
+          <!-- <div class="container"> -->
+        <div class="row-fluid">
+         
+            <div class="span4">
+            <h3><span class="glyphicon glyphicon-earphone"></span> 0202400185</h3>
+            <address>
+              <span class="glyphicon glyphicon-envelope"></span> starsafiri@gmail.com<br><br>
+              <span class="glyphicon glyphicon-earphone"></span> Mobile/WhatsApp: 0721799630 | 0713988098<br><br>
+              <a href="https://www.facebook.com/StarWanderers/?fref=ts" class="social facebook"
+               data-name="facebook" data-type="" target="_blank" 
+               data-prefix="social" data-utf="E031">Facebook: Star Adventures and Safaris</a><br><br>
+               <a href="https://twitter.com/starsafiri" class="social facebook"
+               data-name="facebook" data-type="" target="_blank" 
+               data-prefix="social" data-utf="E031">Twitter: Star Safiri</a>
+              </address>
+          </div>
+        </div>
+<!-- </div> -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- About -->
+  <div class="modal fade" id="about" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">About us </h4>
+        </div>
+        <div class="modal-body">
+          <!-- <div class="container"> -->
+        <div class="row-fluid">
+         
+            <div class="span4">
+            <p style="text-align: justify;">Star Safiri is a place where Holiday seekers, Tour companies, travel experts and explorers can access and share information about holiday destinations, vacations and getaways for the best travel experience.</p>
+          </div>
+        </div>
+<!-- </div> -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 <script type="text/javascript">
     // Attach a submit handler to the form
     $( "#loginForm" ).submit(function( event ) {

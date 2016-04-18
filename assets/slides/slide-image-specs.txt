@@ -1,5 +1,5 @@
 img
 
-horizontal = 1500 +
+horizontal = 1500
 
-vertical = 550 +
+vertical = 550
