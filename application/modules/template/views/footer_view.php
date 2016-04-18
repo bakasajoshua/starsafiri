@@ -1,4 +1,9 @@
-    
+ <!--Start of Footer  -->
+    <footer class="footer" style="background-color: #f0f0f0">
+      <div class="container">
+        <p class="text-muted"><center>&copy Starsafaris.com</center></p>
+      </div>
+    </footer>
 
 <!-- jQuery files that make the site run faster -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
