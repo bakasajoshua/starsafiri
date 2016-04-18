@@ -11,13 +11,10 @@ class home extends MY_Controller {
 	public function index()
 	{
 		$data['content_view'] = "home/home_view";
+
 		$data['title']="Homepage";
-		$data['details'] = $this->get_personal_details();
-		// echo "<pre>";print_r($data['details']);die();
 
-		$data = array_merge($data,$this->load_libraries(array('custom','carousel','bootstrap','bootstrapmin')));
-
-		// echo "<pre>";print_r($data);die();
+		$data = array_merge($data,$this->load_libraries(array('custom','carousel','lightbox','lightboxjs','bootstrap','bootstrapmin')));
 		$this->template($data);
 	}
 
