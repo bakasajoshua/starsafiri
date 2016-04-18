@@ -63,12 +63,13 @@ $config['plugin_path']		=	'assets/plugins/';
 $config['files_path']		=	'assets/files/';
 
 $config['css_files']		=	array(
-									array('title' => 'custom'		,	'file'	=>	'custom.css'),
-								    array('title' => 'carousel'    ,   'file'  =>  'carousel.css')
+									array('title' => 'custom'	   ,	'file'	=>	'custom.css'),
+									array('title' => 'lightbox'	   ,	'file'	=>	'lightbox.css'),
+								    array('title' => 'carousel'    ,   	'file'  =>  'carousel.css')
 
 									);
 $config['js_files']			=	array(
-									// array('title'	=>	'current_date' 	,	'file'	=>	'date_function.js')
+									array('title'	=>	'lightboxjs' 	,	'file'	=>	'lightbox.js')
 								);
 $config['plugin_js_files']	=	array(
 									array('title'	=> 'jquery'		,	'file'	=>	'jquery/jquery-1.11.3.min.js'),
