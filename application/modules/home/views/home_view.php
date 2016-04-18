@@ -134,7 +134,7 @@
 	</div>
 
 	<!-- Start of the travel experience -->
-    <h3 style="margin-top: 20px; text-align: center;">Holiday deals and upcoming trips </h3>
+    <h3 style="margin-top: 20px; text-align: center;">Tour Companies: holiday deals and trips </h3>
     <hr class="soften"></hr>
     <!-- End of the Start Experiences -->
  	<div class="container" id="tourpackages-carousel">
