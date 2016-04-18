@@ -52,7 +52,7 @@ class post_model extends MY_Model{
 										*
 									FROM `posts` `ps`
 									JOIN `users` `us` ON `ps`.`user_id` = `us`.`user_id`")->result_array();
-
+		// echo "<pre>";print_r($posts);die();
 		foreach ($posts as $key => $value) {
 			$id = $value['post_id'];
 
@@ -62,19 +62,100 @@ class post_model extends MY_Model{
 									WHERE `post_ID` = '$id'")->result_array();
 			$likes = $data[0]['likes'];
 			
-			$li .= '<div class="col-sm-6 col-md-4">
-      				<div class="thumbnail">
-				    <img src="'.$value['image'].'" alt="Item Preview" style="width: 280px; height: 200px;">
-				    <div class="caption">
-          			<p>'.$value['first_name'].' '.$value['last_name'].'</p>
-          			<p><a href="#"><i class="glyphicon glyphicon-map-marker"></i>'.$value['location'].'</a></p>
-          			<p><a href="#" id="like_button'.$value['post_id'].'" onclick="like_button_clicked('.$value['post_id'].')" class="btn btn-success" style="border-radius: 20px;"><i class="glyphicon glyphicon-thumbs-up" style="margin-right: 0.2em;"></i><span class="badge">'.$likes.'</span></a> <button class="btn btn-default pull-right" style="border-radius: 20px;">Comment<span class="badge" style="margin-left: 0.2em;">2</span></button></p>
-				    </div>
-				    </div>
-				    </div>';
+			$li .= '<article class="col-xs-12 col-sm-6 col-md-3">
+		            <div class="panel panel-default">
+		                <div class="panel-body">
+		                    <a href="#" title="Nature Portfolio" class="zoom" data-title="Amazing Nature" data-footer="The beauty of nature" data-type="image" data-toggle="lightbox">
+		                        <img src="'.$value['image'].'" alt="Nature Portfolio" style="height:150px;" />
+		                        <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
+		                    </a>
+		                </div>
+		                <div class="panel-footer">
+		                    <h4><a href="#" title="">'.$value['first_name'].' '.$value['last_name'].'</a></h4>
+		                    <span class="pull-right">
+		                        <i id="like1" class="glyphicon glyphicon-thumbs-up"></i> <div id="like1-bs3"></div>
+		                        <a href="remoteContent.html" onclick="comment_button_clicked('.$value['post_id'].')" data-remote="false" data-toggle="modal" data-target="#myModal" class="btn btn-default">
+								    <i id="dislike1" class="glyphicon glyphicon-comment" style="color:blue;"></i> <div id="dislike1-bs3"></div>
+								</a>
+		                        
+		                    </span>
+		                </div>
+		            </div>
+		        </article>';
+
+				    
 		}
 		
 		return $li;
+	}
+
+	function get_post_details($id)
+	{
+		$modal_data = '';
+		$post = $this->db->query("SELECT 
+										*
+									FROM `posts` `ps`
+									JOIN `users` `us` ON `ps`.`user_id` = `us`.`user_id`
+									WHERE `ps`.`post_id` = '$id'")->result_array();
+
+		if($post){
+			$comments = $this->db->query("SELECT 
+											*
+									FROM `comments` `cm`
+									JOIN `users` `us` ON `cm`.`user_id` = `us`.`user_id`
+									WHERE `cm`.`post_id` = '$id'")->result_array();
+			$post = $post[0];
+
+			$modal_data .= '<div class="col-md-4">
+			        			<img src="'.$post['image'].'" style="margin-bottom: 0.5em;">
+			        			<br>
+			        			<a class="media-left" href="#">
+			                      <img src="http://lorempixel.com/40/40/people/3/">
+			                    </a>
+			                    <div class="media-body">
+			                        
+			                      <h4 class="media-heading user_name">'.$post['first_name'].' '.$post['last_name'].'</h4>
+			                      '.$post['description'].'
+			                    </div>
+			                    <br>
+				        		<div class="form-group">
+						            <label for="comment" class="control-label">Comment:</label>
+						            <input type="text" class="form-control" name="comment" id="comment" placeholder="Write a comment...">
+						         </div>
+			        		</div>
+			        		<div class="col-md-6">
+			        		<div class="page-header">
+			                	<h1><small class="pull-right"></small> Comments </h1>
+			                </div> 
+		                   	<div class="comments-list">';
+			if ($comments) {
+				// echo "<pre>";print_r($comments);die();
+				foreach ($comments as $key => $value) {
+					$modal_data .= '<div class="media">
+				                       	<p class="pull-right"><small></small></p>
+				                        <a class="media-left" href="#">
+				                          <img src="http://lorempixel.com/40/40/people/3/">
+				                        </a>
+				                        <div class="media-body">
+				                          <h4 class="media-heading user_name">'.$value['first_name'].' '.$value['last_name'].'</h4>
+				                          '.$value['description'].'
+				                          
+				                        </div>
+				                     </div>';
+				}
+			}else {
+				$modal_data .= '<p>NO comments related to this post.</p>';
+			}
+		
+		$modal_data .= '
+		                   	</div>
+		        		</div>';
+		}else {
+			$modal_data = '<p>Post Does not exist</p>';
+		}
+
+		return $modal_data;
+		
 	}
 
 	function add_like($id)

@@ -16,7 +16,7 @@ class post extends MY_Controller {
 		$data['details'] = $this->get_personal_details();
 		$data['records'] = $this->post_model->get_posts();
 
-		$data = array_merge($data,$this->load_libraries(array('bootstrap-fileinput')));
+		$data = array_merge($data,$this->load_libraries(array('jquery','lightbox','lightboxjs','bootstrap-fileinput')));
 		// echo "<pre>";print_r($data);die();
 		$this->posts_template($data);
 
@@ -28,6 +28,13 @@ class post extends MY_Controller {
 
 		if(!$insert){print "An error occured as the product was being inserted please try again or if the problem persist contact the administrator.!!";}
     	else{redirect(base_url().'post');}
+	}
+
+	function get_posts_details($id)
+	{
+		$post = $this->post_model->get_post_details($id);
+
+		echo $post;
 	}
 	
 	function likes($id)
