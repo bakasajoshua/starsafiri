@@ -17,6 +17,9 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+              <?php if($this->session->userdata('is_logged_in')) {?>
+              <li><a href="<?php echo base_url();?>post">Posts</a></li>
+              <?php } ?>
               <li><a href="#events">Upcoming Events</a></li>
               <li><a href="#about">About us</a></li>
               <li><a href="#contact"><span class="glyphicon glyphicon-phone-alt"></span> Contact us</a></li>
@@ -33,7 +36,10 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
         <!-- If session is Not Set -->
-         <!--  <li class="dropdown">
+            <?php
+              if(!$this->session->userdata('is_logged_in')){
+            ?>
+          <li class="dropdown">
             <button type="button" class="btn btn-default navbar-btn" data-toggle="dropdown" style="color:#1dcb6c;"><span class="glyphicon glyphicon-user"></span> <b>Log in</b> <span class="caret"></span></a></button>
               <ul id="login-dp" class="dropdown-menu">
                   <li>
@@ -44,15 +50,15 @@
                                       <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
                                       <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
                                   </div>
-                                  or
-                                   <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                  or<div id="result" style="color:red;margin-left:4px;"></div>
+                                   <form class="form" role="form" method="post" action="<?php echo base_url();?>login/authentication" accept-charset="UTF-8" id="loginForm">
                                           <div class="form-group">
-                                               <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                                               <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                                               <label class="sr-only" for="email_address">Email address</label>
+                                               <input type="email" class="form-control" name="email_address" id="email_address" placeholder="Email address" required>
                                           </div>
                                           <div class="form-group">
-                                               <label class="sr-only" for="exampleInputPassword2">Password</label>
-                                               <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                               <label class="sr-only" for="password">Password</label>
+                                               <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
                                                <div class="help-block text-right"><a href="">Forget the password ?</a></div>
                                           </div>
                                           <div class="form-group">
@@ -66,21 +72,21 @@
                                    </form>
                               </div>
                               <div class="bottom text-center">
-                                  New here ? <a href="#"><b>Join Us</b></a>
+                                  New here ? <a href="<?php echo base_url();?>signup"><b>Join Us</b></a>
                               </div>
                        </div>
                   </li>
               </ul>
-                </li> -->
+                </li>
         <!-- End of IF session is set -->
-        
+            <?php }else {?>
               <!-- if the session is set -->
                 <li>
                   <div class="btn-group navbar-btn">
-                    <button class="btn btn-info"><span class="glyphicon glyphicon-user"></span> <?php echo "Michael Kamau"?></button>
+                    <button class="btn btn-info"><span class="glyphicon glyphicon-user"></span> <?php echo $details['first_name']." ".$details['last_name']?></button>
                     <button data-toggle="dropdown" class="btn btn-info dropdown-toggle"><span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                      <li><a href="#"><span class="glyphicon glyphicon-off"></span> Log Out</a></li>
+                      <li><a href="<?php echo base_url();?>login/logout"><span class="glyphicon glyphicon-off"></span> Log Out</a></li>
                       <li class="divider"></li>
                       <li class="dropdown-header" style="color:#52bcdc; font-weight: bold;">Advanced Options</li>
                       <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Manage my Account</a></li>
@@ -88,6 +94,7 @@
                     </ul>
                   </div>
                 </li>
+                <?php }?>
               <!-- End of if session is Set -->
             </ul>
           </div><!--/.nav-collapse -->
@@ -96,3 +103,33 @@
 
       </div>
 </div>
+<script type="text/javascript">
+    // Attach a submit handler to the form
+    $( "#loginForm" ).submit(function( event ) {
+         
+        // Stop form from submitting normally
+        event.preventDefault();
+        
+        // Get some values from elements on the page:
+        var $form = $( this ),
+        em = $form.find( "input[name='email_address']" ).val(),
+        pass = $form.find( "input[name='password']" ).val(),
+        url = $form.attr( "action" );
+     
+        // Send the data using post
+        var posting = $.post( url, { email_address: em, password: pass } );
+     
+        // Put the results in a div
+        posting.done(function( data ) {
+          console.log(data);
+            if (data==1) {
+              // console.log('Right stuff provided');
+              window.location.replace('<?php echo base_url();?>');
+            } else {
+              // console.log('Not Right stuff provided');
+              $( "#result" ).empty().append('Wrong email or password entered');
+            }
+            
+        });
+    });
+</script>

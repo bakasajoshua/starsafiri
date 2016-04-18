@@ -23,9 +23,27 @@ class  MY_Controller  extends  MX_Controller {
 
 	}
 
+	protected function posts_template($data)
+	{
+		$this->load->module('template');
+		$this->template->post_view($data);
+	}
+
 	protected function auth($data){
 		$this->load->module('template');
 		$this->template->auth_view($data);
+	}
+
+	protected function get_personal_details()
+	{	
+		$details = array( 0 => array());
+
+		if ($this->session->userdata('is_logged_in')) {
+			$this->db->where('user_id', $this->session->userdata('user_id'));
+			$details = $this->db->get('users')->result_array();
+		}
+
+		return $details[0];
 	}
 
 	public function is_logged_in()
@@ -96,6 +114,13 @@ class  MY_Controller  extends  MX_Controller {
 		}
 		
 		return 	$libs;
+	}
+
+	function logout()
+	{
+		$this->session->sess_destroy();
+
+		redirect(base_url().'home');
 	}
 
 }
