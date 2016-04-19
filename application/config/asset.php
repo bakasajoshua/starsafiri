@@ -74,8 +74,8 @@ $config['js_files']			=	array(
 $config['plugin_js_files']	=	array(
 									array('title'	=> 'jquery'		,	'file'	=>	'jquery/jquery-1.11.3.min.js'),
 									// array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/js/bootstrap.js'),
-									array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/js/bootstrap.min.js'),
-									array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/js/bootstrap.js')
+									// array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/js/bootstrap.min.js')
+									// array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/js/bootstrap.js')
 								);	
 $config['plugin_css_files']	=	array(
 									array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/css/bootstrap.min.css'),
