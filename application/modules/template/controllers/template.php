@@ -20,4 +20,9 @@ class Template extends MY_Controller {
 		$this->load->view('authentication_view',$data);
 	}
 
+	function post_view($data=NULL)
+	{
+		$this->load->view('posts_view', $data);
+	}
+
 }

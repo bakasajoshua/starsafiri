@@ -13,6 +13,7 @@ class home extends MY_Controller {
 		$data['content_view'] = "home/home_view";
 
 		$data['title']="Homepage";
+		$data['details'] = $this->get_personal_details();
 
 		$data = array_merge($data,$this->load_libraries(array('custom','carousel','lightbox','lightboxjs','bootmin')));
 		$this->template($data);
