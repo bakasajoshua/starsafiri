@@ -74,9 +74,13 @@ $config['js_files']			=	array(
 									array('title'	=>	'lightboxjs' 	,	'file'	=>	'lightbox.js')
 								);
 $config['plugin_js_files']	=	array(
-									array('title'	=> 'jquery'		,	'file'	=>	'jquery/jquery-2.2.3.min.js'),
+
+									array('title'	=> 'jquery'		,	'file'	=>	'jquery/jquery-1.11.3.min.js'),
 									array('title'	=> 'bootstrap-fileinput'		,	'file'	=>	'bootstrap-fileinput/js/fileinput.js'),
-									array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/js/bootstrap.js')
+									// array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/js/bootstrap.js'),
+									// array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/js/bootstrap.min.js')
+									// array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/js/bootstrap.js')
+
 								);	
 $config['plugin_css_files']	=	array(
 									array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/css/bootstrap.min.css'),
