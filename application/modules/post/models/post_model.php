@@ -72,13 +72,17 @@ class post_model extends MY_Model{
 		                </div>
 		                <div class="panel-footer">
 		                    <h4><a href="#" title="">'.$value['first_name'].' '.$value['last_name'].'</a></h4>
-		                    <span class="pull-right">
-		                        <i id="like1" class="glyphicon glyphicon-thumbs-up"></i> <div id="like1-bs3"></div>
+		                    <div class="row">
+		                    <span class="">
+		                    	<a href="#" id="like_button'.$value['post_id'].'" onclick="like_button_clicked('.$value['post_id'].')" class="btn btn-default">
+		                        	<i id="like1" class="glyphicon glyphicon-thumbs-up"></i> <div id="like1-bs3" >'.$likes.'</div>
+		                        </a>
 		                        <a href="remoteContent.html" onclick="comment_button_clicked('.$value['post_id'].')" data-remote="false" data-toggle="modal" data-target="#myModal" class="btn btn-default">
-								    <i id="dislike1" class="glyphicon glyphicon-comment" style="color:blue;"></i> <div id="dislike1-bs3"></div>
+								    <i id="dislike1" class="glyphicon glyphicon-comment" style="color:blue;"></i> <div id="dislike1-bs3">3</div>
 								</a>
 		                        
 		                    </span>
+		                    </div>
 		                </div>
 		            </div>
 		        </article>';
@@ -107,7 +111,7 @@ class post_model extends MY_Model{
 			$post = $post[0];
 
 			$modal_data .= '<div class="col-md-4">
-			        			<img src="'.$post['image'].'" style="margin-bottom: 0.5em;">
+			        			<img src="'.$post['image'].'" style="width:275;height:183;margin-bottom: 0.5em;">
 			        			<br>
 			        			<a class="media-left" href="#">
 			                      <img src="http://lorempixel.com/40/40/people/3/">
@@ -118,6 +122,8 @@ class post_model extends MY_Model{
 			                      '.$post['description'].'
 			                    </div>
 			                    <br>
+			                    <form action="'.base_url().'post/addcomment" method="post" class="comment_form">
+			                    <input type="hidden" name="post_id">
 				        		<div class="form-group">
 						            <label for="comment" class="control-label">Comment:</label>
 						            <input type="text" class="form-control" name="comment" id="comment" placeholder="Write a comment...">
@@ -125,6 +131,7 @@ class post_model extends MY_Model{
 						         <div class="form-group">
 						            <button class="btn btn-primary" id="comment_button">Comment</button>
 						         </div>
+						         </form>
 			        		</div>
 			        		<div class="col-md-6">
 			        		<div class="page-header">
@@ -159,6 +166,18 @@ class post_model extends MY_Model{
 
 		return $modal_data;
 		
+	}
+
+	function addComment()
+	{
+		$data = array(
+					'description' => $this->input->post('description'),
+					'user_id' => $this->session->userdata('user_id'),
+					'post_id' => $this->input->post('post_id')
+					 );
+		$insert = $this->db->insert('comments', $data);
+
+		return $insert;
 	}
 
 	function add_like($id)

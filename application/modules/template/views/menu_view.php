@@ -21,7 +21,7 @@
               <?php if($this->session->userdata('is_logged_in')) {?>
               <li><a href="<?php echo base_url();?>post">Posts</a></li>
               <?php } ?>
-              <li><a href="#events">Upcoming Events</a></li>
+              <!-- <li><a href="#events">Upcoming Events</a></li> -->
               <li><a href="" data-toggle="modal" data-target="#about">About us</a></li>
               <li><a href="" data-toggle="modal" data-target="#contact"><span class="glyphicon glyphicon-phone-alt"></span> Contact us</a></li>
               <li class="dropdown">
@@ -91,7 +91,7 @@
                       <li class="divider"></li>
                       <li class="dropdown-header" style="color:#52bcdc; font-weight: bold;">Advanced Options</li>
                       <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Manage my Account</a></li>
-                      <li><a href="#"><span class="glyphicon glyphicon-trash"></span> Delete Account</a></li>
+                      <!-- <li><a href="#"><span class="glyphicon glyphicon-trash"></span> Delete Account</a></li> -->
                     </ul>
                   </div>
                 </li>
@@ -159,7 +159,9 @@
         <div class="row-fluid">
          
             <div class="span4">
-            <p style="text-align: justify;">Star Safiri is a place where Holiday seekers, Tour companies, travel experts and explorers can access and share information about holiday destinations, vacations and getaways for the best travel experience.</p>
+            <p style="text-align: justify;">StarSafiri is aimed at connecting Travel enthusiasts, Holiday seekers, explorers & adventurers and Tours & Travel organisers.<br>
+            At Starsafiri you can access and share information about holiday destinations, vacations and getaways for the best travel experience.<br>
+             Our Motto is: Travel Have fun and make a difference wherever you go.</p>
           </div>
         </div>
 <!-- </div> -->

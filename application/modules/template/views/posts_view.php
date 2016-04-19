@@ -53,7 +53,7 @@
 			<?php if($this->session->userdata('is_logged_in')) {?>
 				<li><a href="<?php echo base_url();?>post">Posts</a></li>
 			<?php } ?>
-				<li><a href="#events">Upcoming Events</a></li>
+				<!-- <li><a href="#events">Upcoming Events</a></li> -->
 				<li><a href="#about">About us</a></li>
 				<li><a href="#contact"><span class="glyphicon glyphicon-phone-alt"></span> Contact us</a></li>
 				<li class="dropdown">
@@ -98,6 +98,18 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    
+   <!--Start of Footer  -->
+    <footer class="footer" style="background-color: #f0f0f0">
+      <div class="container">
+        <p class="text-muted"><center>&copy Starsafaris.com</center></p>
+      </div>
+    </footer>
+
+<!-- jQuery files that make the site run faster -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>

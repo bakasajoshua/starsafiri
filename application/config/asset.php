@@ -75,7 +75,7 @@ $config['js_files']			=	array(
 								);
 $config['plugin_js_files']	=	array(
 
-									array('title'	=> 'jquery'		,	'file'	=>	'jquery/jquery-1.11.3.min.js'),
+									array('title'	=> 'jquery'		,	'file'	=>	'jquery/jquery-2.2.3.min.js'),
 									array('title'	=> 'bootstrap-fileinput'		,	'file'	=>	'bootstrap-fileinput/js/fileinput.js'),
 									// array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/js/bootstrap.js'),
 									// array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/js/bootstrap.min.js')
