@@ -39,8 +39,26 @@
 	</div>
 
 	<!-- Advertisment section-->
-	<div class="col-md-3">
-		
+	
+</div>
+<div class="col-md-3">
+		<div class="top_strip" style="border-bottom:thin dotted #c7cdd0;">
+                    <div class="top_stripA" style="text-indent:5px;">Star Safaris on twitter</div>
+                    <!-- <div class="top_stripB"><center><img src="<?php// echo base_url() .'assets/icons/2_.png'?>" style="height:20px;"/></center></div> -->
+                </div>
+
+                <!--embeded twitter timelines -->
+                <div class="mid_in_slideA">
+                     <a class="twitter-timeline" href="https://twitter.com/starsafiri" data-widget-id="720952162025648128">Tweets by @starsafiri</a>Star Safaris</a>
+                     <script src="<?php echo base_url() .'assets/js/social_media/twitter.js'?>"></script>
+                    
+                </div>
+                <!-- End of embede twitter timelines -->
+                <!-- Footer of the partnership column -->
+                <div class="top_strip" style="border-top:thin dotted #c7cdd0;">
+                    <div class="top_stripA" style="margin-top:0px; color:#FFF; text-indent:5px;"><a href="#">Recommended tours </a></div>
+                    <!-- <div class="top_stripB"><center><img src="<?php //echo base_url() . 'assets/icons/2__.png'?>" style="height:20px;"/></center></div> -->
+                </div>
 	</div>
 </div>
 <!-- Default bootstrap modal example -->
@@ -94,12 +112,20 @@
         	</div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      
     </div>
   </div>
+  <script type="text/javascript">
+  	$(document).ready(function(){
+
+
+		$('#comment_button').click(function(){
+			comment = $('#comment').val();
+			console.log(comment);
+			
+		});
+  	});
+  </script>
 </div>
 
 <!-- <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -185,25 +211,44 @@
 		    $(this).find(".modal-body").load(link.attr("href"));
 		});
 
-		$('#comment_button').click(function(){
-			comment = $('#comment').val();
-			
-		});
+		// Attach a submit handler to the form
+    $( ".comment_form" ).submit(function( event ) {
+         
+        // Stop form from submitting normally
+        event.preventDefault();
+        
+        // Get some values from elements on the page:
+        var $form = $( this ),
+        em = $form.find( "input[name='comment']" ).val(),
+        id = $form.find( "input[name='post_id']" ).val(),
+        
+        url = $form.attr( "action" );
+     
+        // Send the data using post
+        var posting = $.post( url, { description: em, post_id: id } );
+     
+        // Put the results in a div
+        posting.done(function( data ) {
+          console.log(data);
+        });
+    });
     });
 	
   function like_button_clicked(id)
   {
+  	// e.preventDefault();
     $.get('<?php echo base_url();?>post/likes/'+id, function(data){
       obj =jQuery.parseJSON(data);
-      $('#like_button'+id).html('<i class="glyphicon glyphicon-thumbs-up" style="margin-right: 0.2em;"></i><span class="badge">'+obj+'</span>');
+      $('#like_button'+id).empty().append('<i id="like1" class="glyphicon glyphicon-thumbs-up"></i> <div id="like1-bs3" >'+obj+'</div>');
     });
   // <i class="glyphicon glyphicon-thumbs-up" style="margin-right: 0.2em;"></i><span class="badge">'.$value['likes'].'</span>
   }
 
   function comment_button_clicked(id)
   {
+  	$('#comments').empty();
   	$.get('<?php echo base_url();?>post/get_posts_details/'+id, function(data){
-  		$('#comments').html(data);
+  		$('#comments').append(data);
   	});
   }
 </script>

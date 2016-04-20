@@ -50,7 +50,7 @@
     </div><!-- /.carousel -->
 
     <!-- Start of the travel experience -->
-    <h2 style="margin-top: 20px; text-align: center;">Your best travel experiences begins here</h2>
+    <h2 style="margin-top: 20px; text-align: center;">Your best travel experience begins here</h2>
     <hr class="soften"></hr>
     <!-- End of the Start Experiences -->
 
@@ -134,7 +134,7 @@
 	</div>
 
 	<!-- Start of the travel experience -->
-    <h3 style="margin-top: 20px; text-align: center;">Tour Companies: holiday deals and trips </h3>
+    <h3 style="margin-top: 20px; text-align: center;">Tour Companies: Holiday deals and Trips </h3>
     <hr class="soften"></hr>
     <!-- End of the Start Experiences -->
  	<div class="container" id="tourpackages-carousel">

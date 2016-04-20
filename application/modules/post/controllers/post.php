@@ -30,6 +30,13 @@ class post extends MY_Controller {
     	else{redirect(base_url().'post');}
 	}
 
+	function addcomment()
+	{
+		$submit = $this->post_model->addComment();
+
+		echo TRUE;
+	}
+
 	function get_posts_details($id)
 	{
 		$post = $this->post_model->get_post_details($id);
