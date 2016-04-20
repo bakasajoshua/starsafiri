@@ -39,8 +39,26 @@
 	</div>
 
 	<!-- Advertisment section-->
-	<div class="col-md-3">
-		
+	
+</div>
+<div class="col-md-3">
+		<div class="top_strip" style="border-bottom:thin dotted #c7cdd0;">
+                    <div class="top_stripA" style="text-indent:5px;">Star Safaris on twitter</div>
+                    <!-- <div class="top_stripB"><center><img src="<?php// echo base_url() .'assets/icons/2_.png'?>" style="height:20px;"/></center></div> -->
+                </div>
+
+                <!--embeded twitter timelines -->
+                <div class="mid_in_slideA">
+                     <a class="twitter-timeline" href="https://twitter.com/starsafiri" data-widget-id="720952162025648128">Tweets by @starsafiri</a>Star Safaris</a>
+                     <script src="<?php echo base_url() .'assets/js/social_media/twitter.js'?>"></script>
+                    
+                </div>
+                <!-- End of embede twitter timelines -->
+                <!-- Footer of the partnership column -->
+                <div class="top_strip" style="border-top:thin dotted #c7cdd0;">
+                    <div class="top_stripA" style="margin-top:0px; color:#FFF; text-indent:5px;"><a href="#">Recommended tours </a></div>
+                    <!-- <div class="top_stripB"><center><img src="<?php //echo base_url() . 'assets/icons/2__.png'?>" style="height:20px;"/></center></div> -->
+                </div>
 	</div>
 </div>
 <!-- Default bootstrap modal example -->
@@ -228,8 +246,9 @@
 
   function comment_button_clicked(id)
   {
+  	$('#comments').empty();
   	$.get('<?php echo base_url();?>post/get_posts_details/'+id, function(data){
-  		$('#comments').html(data);
+  		$('#comments').append(data);
   	});
   }
 </script>

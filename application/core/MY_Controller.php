@@ -52,7 +52,7 @@ class  MY_Controller  extends  MX_Controller {
 			redirect(base_url().'home');
 		}
 	}
-	
+
 	public function load_libraries($arr=NULL){
 
 		array_unshift($arr, "jquery","bootstrap");

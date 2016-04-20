@@ -24,7 +24,7 @@
 </head>
 <style type="text/css">
 	body {
-	  min-height: 2000px;
+	  min-height: 500px;
 	  background-color: #e7e7e7;
 	}
 
