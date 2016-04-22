@@ -1,7 +1,7 @@
 <div class="navbar-wrapper">
   <div class="container">
 
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default" style="border-radius: 0; background-color: rgba(255,255,255,.85);">
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -17,13 +17,12 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-              
               <?php if($this->session->userdata('is_logged_in')) {?>
               <li><a href="<?php echo base_url();?>post">Posts</a></li>
               <?php } ?>
               <!-- <li><a href="#events">Upcoming Events</a></li> -->
-              <li><a href="" data-toggle="modal" data-target="#about">About us</a></li>
-              <li><a href="" data-toggle="modal" data-target="#contact"><span class="glyphicon glyphicon-phone-alt"></span> Contact us</a></li>
+              <li><a href="#about" data-toggle="modal" data-target="#about">About us</a></li>
+              <li><a href="#contact" data-toggle="modal" data-target="#contact"><span class="glyphicon glyphicon-phone-alt"></span> Contact us</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#1dcb6c; font-weight: bold;">Advertise + <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -41,7 +40,7 @@
               if(!$this->session->userdata('is_logged_in')){
             ?>
           <li class="dropdown">
-            <button type="button" class="btn btn-default navbar-btn" data-toggle="dropdown" style="color:#1dcb6c;"><span class="glyphicon glyphicon-user"></span> <b>Log in</b> <span class="caret"></span></a></button>
+            <button type="button" class="btn btn-info navbar-btn" data-toggle="dropdown" style="border-radius: 0; "><span class="glyphicon glyphicon-user"></span> <b>Log in</b> <span class="caret"></span></a></button>
               <ul id="login-dp" class="dropdown-menu">
                   <li>
                        <div class="row">
@@ -160,7 +159,7 @@
          
             <div class="span4">
             <p style="text-align: justify;">StarSafiri is aimed at connecting Travel enthusiasts, Holiday seekers, explorers & adventurers and Tours & Travel organisers.<br>
-            At Starsafiri you can access and share information about holiday destinations, vacations and getaways for the best travel experience.<br>
+            At Starsafiri you can access and share information about holiday destinations, vacations and getaways for the best travel experience.<br><br>
              Our Motto is: Travel Have fun and make a difference wherever you go.</p>
           </div>
         </div>
