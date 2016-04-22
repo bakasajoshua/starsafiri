@@ -1,9 +1,9 @@
  <!--Start of Footer  -->
 <!-- footer -->
-<div class="container">
-    <footer role="contentinfo" class="site-footer" id="colophon">
+<!-- <div class="container-fluid"> -->
+    <footer role="contentinfo" class="container-fluid" id="colophon">
       <div class="container">
-        <div class="row">
+        <div class="row-fluid">
           <div id="accordion" class="collapse-footer">
             <div class="panel">
               <div class="panel-heading">
@@ -51,7 +51,7 @@
       </div>
       
       <!-- Copyright -->
-      <div class="copyright">
+      <div class="copyright" style="min-width: 100%;">
         <div class="container">
           <div class="row copyright-img">
             <div class="col-lg-4 col-sm-4"> Total Control True Independence </div>
@@ -61,7 +61,7 @@
       </div>
       <!-- /Copyright -->
     </footer>
-</div>
+<!-- </div> -->
 <!-- jQuery files that make the site run faster -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="assets/plugins/jquery/jquery-2.2.3.min.js"></script>
