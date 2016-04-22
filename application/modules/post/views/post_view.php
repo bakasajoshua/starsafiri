@@ -246,10 +246,10 @@
 
   function comment_button_clicked(id)
   {
-  	$('#comments').empty();
-  	$.get('<?php echo base_url();?>post/get_posts_details/'+id, function(data){
-  		$('#comments').append(data);
-  	});
+  	// $('#comments').empty();
+  	// $.get('<?php echo base_url();?>post/get_posts_details/'+id, function(data){
+  	// 	$('#comments').append(data);
+  	// });
   }
 </script>
 

@@ -14,7 +14,7 @@
             <div class="carousel-caption">
               <h1 style="color:#1dcb6c;">Plan your next Adventure.</h1>
               <p>Access and Share information on upcoming events: Holiday deals,trips and adventures.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Advertise with us</a></p>
             </div>
           </div>
         </div>
@@ -24,17 +24,16 @@
             <div class="carousel-caption">
               <h1>Relate</h1>
               <p>Connect with other travel enthusiasts, share memories and stories of your travel expriences</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
             </div>
           </div>
         </div>
         <div class="item">
-          <img class="third-slide" src="assets/slides/slide-06.jpg" alt="Third slide">
+          <img class="third-slide" src="assets/slides/zipper.jpg" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
               <h1 style="color:#1dcb6c;">Share Your Experience</h1>
               <p>Share your travel experience: Holidays & vacations, getaways and adventure destinations.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+              <p><a class="btn btn-lg btn-primary" href="<?php echo base_url();?>signup" role="button">Sign up today</a></p>
             </div>
           </div>
         </div>
@@ -204,3 +203,4 @@
 			  </ul>
 		</nav></center>
     </div>
+  </div>

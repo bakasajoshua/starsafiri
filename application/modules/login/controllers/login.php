@@ -29,7 +29,7 @@ class login extends MY_Controller
 			$redirect = FALSE;
 		}
 		// echo $redirect;die();
-		echo $redirect;
+		echo json_encode($redirect);
 	}
 }
 ?>

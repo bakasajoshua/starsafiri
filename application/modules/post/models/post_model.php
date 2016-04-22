@@ -91,7 +91,7 @@ class post_model extends MY_Model{
 			                    <h4><a href="#" title="">'.$value['first_name'].' '.$value['last_name'].'</a></h4>
 			                    <div class="row">
 			                    <span class="">
-			                    	<a href="#" id="like_button'.$value['post_id'].'" onclick="like_button_clicked('.$value['post_id'].')" class="btn btn-default">
+			                    	<a href="javascript:void(0);" id="like_button'.$value['post_id'].'" onclick="like_button_clicked('.$value['post_id'].')" class="btn btn-default">
 			                        	<i id="like1" class="glyphicon glyphicon-thumbs-up"></i> <div id="like1-bs3" >'.$likes.'</div>
 			                        </a>
 			                        <a href="remoteContent.html" onclick="comment_button_clicked('.$value['post_id'].')" data-remote="false" data-toggle="modal" data-target="#myModal" class="btn btn-default">

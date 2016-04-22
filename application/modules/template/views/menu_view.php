@@ -17,7 +17,7 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-
+              
               <?php if($this->session->userdata('is_logged_in')) {?>
               <li><a href="<?php echo base_url();?>post">Posts</a></li>
               <?php } ?>
@@ -174,6 +174,7 @@
     </div>
   </div>
 <script type="text/javascript">
+$(document).ready(function() {
     // Attach a submit handler to the form
     $( "#loginForm" ).submit(function( event ) {
          
@@ -192,7 +193,7 @@
         // Put the results in a div
         posting.done(function( data ) {
           console.log(data);
-            if (data==1) {
+            if (data=='true') {
               // console.log('Right stuff provided');
               window.location.replace('<?php echo base_url();?>');
             } else {
@@ -202,4 +203,5 @@
             
         });
     });
+  });
 </script>
