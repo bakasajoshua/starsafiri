@@ -64,30 +64,25 @@ $config['files_path']		=	'assets/files/';
 
 $config['css_files']		=	array(
 
-									array('title' => 'custom'		,	'file'	=>	'custom.css'),
-									array('title' => 'lightbox'	   ,	'file'	=>	'lightbox.css'),
-								    array('title' => 'carousel'    ,   'file'  =>  'carousel.css'),
-								    array('title' => 'signin'    ,   'file'  =>  'signin.css')
+									array('title' => 'custom'	,	'file'	=>	'custom.css'),
+									array('title' => 'footer'	,	'file'	=>	'footer.css'),
+									array('title' => 'lightbox'	,	'file'	=>	'lightbox.css'),
+								    array('title' => 'carousel' ,   'file'  =>  'carousel.css'),
+								    array('title' => 'signin'   ,   'file'  =>  'signin.css')
 
 									);
 $config['js_files']			=	array(
-									array('title'	=>	'lightboxjs' 	,	'file'	=>	'lightbox.js')
+									array('title'=>	'lightboxjs',	'file'	=>	'lightbox.js')
 								);
 $config['plugin_js_files']	=	array(
 
-									array('title'	=> 'jquery'		,	'file'	=>	'jquery/jquery-2.2.3.min.js'),
-									array('title'	=> 'bootstrap-fileinput'		,	'file'	=>	'bootstrap-fileinput/js/fileinput.js'),
-									// array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/js/bootstrap.js'),
-									// array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/js/bootstrap.min.js')
-									// array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/js/bootstrap.js')
-
+									array('title'=> 'jquery'	,	'file'	=>	'jquery/jquery-2.2.3.min.js'),
+									array('title'=> 'bootstrap-fileinput',	'file'	=>	'bootstrap-fileinput/js/fileinput.js')
 								);	
 $config['plugin_css_files']	=	array(
-									array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/css/bootstrap.min.css'),
-									// array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/css/bootstrap-theme-min.css'),
-									array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/css/bootstrap.css'),
-									// array('title'	=> 'bootstrap'		,	'file'	=>	'bootstrap/css/bootstrap-theme.css'),
-									array('title'	=> 'bootstrap-fileinput'		,	'file'	=>	'bootstrap-fileinput/css/fileinput.css'),
+									array('title'=> 'bootstrap'	,	'file'	=>	'bootstrap/css/bootstrap.min.css'),
+									array('title'=> 'bootstrap'	,	'file'	=>	'bootstrap/css/bootstrap.css'),
+									array('title'=> 'bootstrap-fileinput',	'file'	=>	'bootstrap-fileinput/css/fileinput.css'),
 
 								);
 $config['plugin_php_files']	=	array(
