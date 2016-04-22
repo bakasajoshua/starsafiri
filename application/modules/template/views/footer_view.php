@@ -1,7 +1,7 @@
  <!--Start of Footer  -->
 <!-- footer -->
 <!-- <div class="container-fluid"> -->
-    <footer role="contentinfo" class="container-fluid" id="colophon">
+    <footer role="contentinfo" class="container-fluid" id="colophon" style="padding-left: 0 !important; padding-right: 0 !important;">
       <div class="container">
         <div class="row-fluid">
           <div id="accordion" class="collapse-footer">
