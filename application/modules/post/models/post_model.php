@@ -59,7 +59,7 @@ class post_model extends MY_Model{
 		$posts = $this->db->query("SELECT 
 										*
 									FROM `posts` `ps`
-									JOIN `users` `us` ON `ps`.`user_id` = `us`.`user_id`")->result_array();
+									JOIN `users` `us` ON `ps`.`user_id` = `us`.`user_id` ORDER BY `ps`.`date` DESC")->result_array();
 		// echo "<pre>";print_r($posts);die();
 		if (!$posts) {
 			$li .= '<div class="col-md-12 col-sm-12 col-xs-12">
@@ -73,11 +73,16 @@ class post_model extends MY_Model{
 			foreach ($posts as $key => $value) {
 				$id = $value['post_id'];
 
-				$data = $this->db->query("SELECT 
+				$likes = $this->db->query("SELECT 
 											COUNT(`like_ID`) AS `likes`
 										FROM `post_likes`
 										WHERE `post_ID` = '$id'")->result_array();
-				$likes = $data[0]['likes'];
+				$comments = $this->db->query("SELECT
+												COUNT(`comment_id`) AS `comments`
+										FROM `comments`
+										WHERE `post_ID` = '$id'")->result_array();
+				$likes = $likes[0]['likes'];
+				$comments = $comments[0]['comments'];
 				
 				$li .= '<article class="col-xs-12 col-sm-6 col-md-3">
 			            <div class="panel panel-default">
@@ -94,8 +99,8 @@ class post_model extends MY_Model{
 			                    	<a href="javascript:void(0);" id="like_button'.$value['post_id'].'" onclick="like_button_clicked('.$value['post_id'].')" class="btn btn-default">
 			                        	<i id="like1" class="glyphicon glyphicon-thumbs-up"></i> <div id="like1-bs3" >'.$likes.'</div>
 			                        </a>
-			                        <a href="remoteContent.html" onclick="comment_button_clicked('.$value['post_id'].')" data-remote="false" data-toggle="modal" data-target="#myModal" class="btn btn-default">
-									    <i id="dislike1" class="glyphicon glyphicon-comment" style="color:blue;"></i> <div id="dislike1-bs3">3</div>
+			                        <a href="javascript:void(0);" id="comment_button'.$value['post_id'].'" onclick="comment_button_clicked('.$value['post_id'].')" data-remote="false" data-toggle="modal" data-target="#myModal" class="btn btn-default">
+									    <i id="dislike1" class="glyphicon glyphicon-comment" style="color:blue;"></i> <div id="dislike1-bs3">'.$comments.'</div>
 									</a>
 			                        
 			                    </span>
@@ -137,29 +142,29 @@ class post_model extends MY_Model{
 			                      '.$post['description'].'
 			                    </div>
 			                    <br>
-			                    <!--<form action="'.base_url().'post/addcomment" method="post" class="comment_form">
-			                    <input type="hidden" name="post_id">
+			                    <!--<form class="form" role="form" method="post" action="'.base_url().'post/addcomment" accept-charset="UTF-8" id="comment_form">-->
+			                    <input type="hidden" name="post_id" value="'.$id.'">
 				        		<div class="form-group">
 						            <label for="comment" class="control-label">Comment:</label>
 						            <input type="text" class="form-control" name="comment" id="comment" placeholder="Write a comment...">
 						         </div>
 						         <div class="form-group">
-						            <button class="btn btn-primary" id="comment_button">Comment</button>
+						         	<button id="submit" class="btn btn-primary btn-block" onclick="post_comment()">Comment</button>
 						         </div>
-						         </form>-->
+						         <!--</form>-->
 			        		</div>
 			        		<div class="col-md-6">
 			        		<div class="page-header">
 			                	<h1><small class="pull-right"></small> Comments </h1>
 			                </div> 
-		                   	<div class="comments-list">';
+		                   	<div class="comments-list" id="comments_list'.$id.'">';
 			if ($comments) {
 				// echo "<pre>";print_r($comments);die();
 				foreach ($comments as $key => $value) {
 					$modal_data .= '<div class="media">
 				                       	<p class="pull-right"><small></small></p>
 				                        <a class="media-left" href="#">
-				                          <img src="http://lorempixel.com/40/40/people/3/">
+				                          <img src="'.base_url().'assets/profiles/profile-placeholder.png">
 				                        </a>
 				                        <div class="media-body">
 				                          <h4 class="media-heading user_name">'.$value['first_name'].' '.$value['last_name'].'</h4>
@@ -186,13 +191,53 @@ class post_model extends MY_Model{
 	function addComment()
 	{
 		$data = array(
-					'description' => $this->input->post('description'),
+					'description' => $this->input->post('comment'),
 					'user_id' => $this->session->userdata('user_id'),
 					'post_id' => $this->input->post('post_id')
 					 );
 		$insert = $this->db->insert('comments', $data);
 
 		return $insert;
+	}
+
+	function refreshedComments($id)
+	{
+		$refresh_data = '';
+		$comments = $this->db->query("SELECT 
+											*
+									FROM `comments` `cm`
+									JOIN `users` `us` ON `cm`.`user_id` = `us`.`user_id`
+									WHERE `cm`.`post_id` = '$id'")->result_array();
+
+		foreach ($comments as $key => $value) {
+			$refresh_data .= '<div class="media">
+		                       	<p class="pull-right"><small></small></p>
+		                        <a class="media-left" href="#">
+		                          <img src="'.base_url().'assets/profiles/profile-placeholder.png">
+		                        </a>
+		                        <div class="media-body">
+		                          <h4 class="media-heading user_name">'.$value['first_name'].' '.$value['last_name'].'</h4>
+		                          '.$value['description'].'
+		                          
+		                        </div>
+		                     </div>';
+		}
+
+		return $refresh_data;
+	}
+
+	function update_comments_count($id)
+	{
+		$comments = $this->db->query("SELECT
+												COUNT(`comment_id`) AS `comments`
+										FROM `comments`
+										WHERE `post_ID` = '$id'")->result_array();
+
+		$comments = $comments[0]['comments'];
+
+		$string = '<i id="dislike1" class="glyphicon glyphicon-comment" style="color:blue;"></i> <div id="dislike1-bs3">'.$comments.'</div>';
+
+		return $string;
 	}
 
 	function add_like($id)
@@ -221,5 +266,6 @@ class post_model extends MY_Model{
 
 		return $likes;
 	}
+
 
 }

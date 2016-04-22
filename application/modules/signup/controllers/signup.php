@@ -29,7 +29,7 @@ class signup extends MY_Controller
 	{
 		$reg = $this->signup_model->register();
 		if ($reg) {
-			redirect(base_url().'login');
+			redirect(base_url().'signup/firstlogin');
 		}
 	}
 
@@ -37,6 +37,18 @@ class signup extends MY_Controller
 		$email = $this->signup_model->check_existing_email($email);
 
 		echo($email);
+	}
+
+	function firstlogin()
+	{
+		$data['content_view'] = "signup/firstlogin";
+
+		$data['title']="First Login";
+
+		$data = array_merge($data,$this->load_libraries(array('bootstrap','bootstrapmin','signin')));
+		// echo "<pre>";print_r($data);die();
+		$this->auth($data);
+		// $this->load->view('signup_view2');
 	}
 }
 ?>

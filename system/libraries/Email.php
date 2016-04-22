@@ -184,7 +184,7 @@ class CI_Email {
 	 * @link	http://www.ietf.org/rfc/rfc822.txt
 	 * @var	string	"\r\n" or "\n"
 	 */
-	public $newline		= "\n";			// Default newline. "\r\n" or "\n" (Use "\r\n" to comply with RFC 822)
+	public $newline		= "\r\n";			// Default newline. "\r\n" or "\n" (Use "\r\n" to comply with RFC 822)
 
 	/**
 	 * CRLF character sequence
@@ -2103,54 +2103,68 @@ class CI_Email {
 	 * @return	bool
 	 */
 	protected function _smtp_authenticate()
-	{
-		if ( ! $this->_smtp_auth)
-		{
-			return TRUE;
-		}
+  {
+    if ( ! $this->_smtp_auth)
+    {
+      return TRUE;
+    }
 
-		if ($this->smtp_user === '' && $this->smtp_pass === '')
-		{
-			$this->_set_error_message('lang:email_no_smtp_unpw');
-			return FALSE;
-		}
+    if ($this->smtp_user === '' && $this->smtp_pass === '')
+    {
+      $this->_set_error_message('lang:email_no_smtp_unpw');
+      return FALSE;
+    }
 
-		$this->_send_data('AUTH LOGIN');
+    $this->_send_data('AUTH PLAIN '.base64_encode("\000".$this->smtp_user."\000".$this->smtp_pass));
 
-		$reply = $this->_get_smtp_data();
+    $reply = $this->_get_smtp_data();
 
-		if (strpos($reply, '503') === 0)	// Already authenticated
-		{
-			return TRUE;
-		}
-		elseif (strpos($reply, '334') !== 0)
-		{
-			$this->_set_error_message('lang:email_failed_smtp_login', $reply);
-			return FALSE;
-		}
+    if (strpos($reply, '503') === 0)  // Already authenticated
+    {
+      return TRUE;
+    }
+    elseif (strpos($reply, '235') === 0)
+    {
+      return TRUE;
+    }
+    $this->_set_error_message('lang:email_failed_smtp_login', $reply);
 
-		$this->_send_data(base64_encode($this->smtp_user));
+    $this->_send_data('AUTH LOGIN');
 
-		$reply = $this->_get_smtp_data();
+    $reply = $this->_get_smtp_data();
 
-		if (strpos($reply, '334') !== 0)
-		{
-			$this->_set_error_message('lang:email_smtp_auth_un', $reply);
-			return FALSE;
-		}
+    if (strpos($reply, '503') === 0)  // Already authenticated
+    {
+      return TRUE;
+    }
+    elseif (strpos($reply, '334') !== 0)
+    {
+      $this->_set_error_message('lang:email_failed_smtp_login', $reply);
+      return FALSE;
+    }
 
-		$this->_send_data(base64_encode($this->smtp_pass));
+    $this->_send_data(base64_encode($this->smtp_user));
 
-		$reply = $this->_get_smtp_data();
+    $reply = $this->_get_smtp_data();
 
-		if (strpos($reply, '235') !== 0)
-		{
-			$this->_set_error_message('lang:email_smtp_auth_pw', $reply);
-			return FALSE;
-		}
+    if (strpos($reply, '334') !== 0)
+    {
+      $this->_set_error_message('lang:email_smtp_auth_un', $reply);
+      return FALSE;
+    }
 
-		return TRUE;
-	}
+    $this->_send_data(base64_encode($this->smtp_pass));
+
+    $reply = $this->_get_smtp_data();
+
+    if (strpos($reply, '235') !== 0)
+    {
+      $this->_set_error_message('lang:email_smtp_auth_pw', $reply);
+      return FALSE;
+    }
+
+    return TRUE;
+  } 
 
 	// --------------------------------------------------------------------
 

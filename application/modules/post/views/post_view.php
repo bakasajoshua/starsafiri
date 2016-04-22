@@ -115,17 +115,6 @@
       
     </div>
   </div>
-  <script type="text/javascript">
-  	$(document).ready(function(){
-
-
-		$('#comment_button').click(function(){
-			comment = $('#comment').val();
-			console.log(comment);
-			
-		});
-  	});
-  </script>
 </div>
 
 <!-- <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -137,7 +126,7 @@
 </div>
  -->
 <script type="text/javascript">
-
+$(document).ready(function() {
 	$('#file-fr').fileinput({
         language: 'fr',
         uploadUrl: '#',
@@ -195,7 +184,7 @@
         alert('File browse clicked for #file-4');
     });
     */
-    $(document).ready(function() {
+    
         $("#test-upload").fileinput({
             'showPreview' : false,
             'allowedFileExtensions' : ['jpg', 'png','gif'],
@@ -207,33 +196,35 @@
         });
         */
         $("#myModal").on("show.bs.modal", function(e) {
-		    var link = $(e.relatedTarget);
-		    $(this).find(".modal-body").load(link.attr("href"));
-		});
+  		    var link = $(e.relatedTarget);
+  		    $(this).find(".modal-body").load(link.attr("href"));
+    		});
 
-		// Attach a submit handler to the form
-    $( ".comment_form" ).submit(function( event ) {
-         
-        // Stop form from submitting normally
-        event.preventDefault();
-        
-        // Get some values from elements on the page:
-        var $form = $( this ),
-        em = $form.find( "input[name='comment']" ).val(),
-        id = $form.find( "input[name='post_id']" ).val(),
-        
-        url = $form.attr( "action" );
-     
-        // Send the data using post
-        var posting = $.post( url, { description: em, post_id: id } );
-     
-        // Put the results in a div
-        posting.done(function( data ) {
-          console.log(data);
-        });
+
+
+  		// // Attach a submit handler to the form
+    //   $( "button#submit" ).submit(function( event ) {
+           
+    //       // Stop form from submitting normally
+    //       event.preventDefault();
+          
+    //       // Get some values from elements on the page:
+    //       // var $form = $( this ),
+    //       // em = $form.find( "input[name='comment']" ).val(),
+    //       // id = $form.find( "input[name='post_id']" ).val(),
+          
+    //       // url = $form.attr( "action" );
+       
+    //       // // Send the data using post
+    //       // var posting = $.post( url, { comment: em, post_id: id } );
+       
+    //       // // Put the results in a div
+    //       // posting.done(function( data ) {
+    //       //   console.log(data);
+    //       // });
+    //   });
     });
-    });
-	
+
   function like_button_clicked(id)
   {
   	// e.preventDefault();
@@ -246,11 +237,35 @@
 
   function comment_button_clicked(id)
   {
-  	// $('#comments').empty();
-  	// $.get('<?php echo base_url();?>post/get_posts_details/'+id, function(data){
-  	// 	$('#comments').append(data);
-  	// });
+  	$('#comments').empty();
+  	$.get('<?php echo base_url();?>post/get_posts_details/'+id, function(data){
+  		$('#comments').append(data);
+  	});
   }
+
+  function post_comment()
+  {
+    comm = $("input[name='comment']").val();
+    id = $("input[name='post_id']").val();
+    
+     $.ajax({
+           type: "POST",
+           url: "<?php echo base_url();?>post/addcomment",
+           data: {post_id:id, comment: comm },
+                   success: function(msg){
+                    $.get('<?php echo base_url();?>post/get_refreshedComments/'+id, function(data){
+                      $('#comments_list'+id).empty().append(data);
+                      $("input[name='comment']").val('');
+                      $.get('<?php echo base_url();?>post/update_comment_count/'+id, function(data){
+                        $('#comment_button'+id).empty().append(data);
+                      });
+                    });
+                   },
+                   error: function(){
+                    console.log("failure");
+                   }
+        });
+    }
 </script>
 
             

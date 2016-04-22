@@ -40,7 +40,7 @@
               if(!$this->session->userdata('is_logged_in')){
             ?>
           <li class="dropdown">
-            <button type="button" class="btn btn-info navbar-btn" data-toggle="dropdown" style="border-radius: 0; "><span class="glyphicon glyphicon-user"></span> <b>Log in</b> <span class="caret"></span></a></button>
+            <button type="button" class="btn btn-info navbar-btn" data-toggle="dropdown" style="border-radius: 0; "><span class="glyphicon glyphicon-user"></span><a href="#"> <b>Log in</b> <span class="caret"></span></a></button>
               <ul id="login-dp" class="dropdown-menu">
                   <li>
                        <div class="row">

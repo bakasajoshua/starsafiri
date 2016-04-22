@@ -116,6 +116,69 @@ class  MY_Controller  extends  MX_Controller {
 		return 	$libs;
 	}
 
+	function send_email()
+	{
+		$this->email->from('starsafiri@starsafiri.com', 'mydomain.com');
+		$this->email->to('baksajoshua09@gmail.com');
+		// $this->email->bcc('support@mydomain.com');
+		$this->email->subject('mydomain- Request a new password');
+		$this->email->message('This is a test email.');            
+		// $this->email->send();
+		// $this->load->library('email');
+		// $config['protocol'] = "smtp";
+		// $config['smtp_host'] = "ssl://smtp.gmail.com";
+		// $config['smtp_port'] = "465";
+		// $config['smtp_user'] = "chrisrichrads@gmail.com";
+		// $config['smtp_pass'] = "joshuaSUN";
+		// $config['charset'] = "utf-8";
+		// $config['mailtype'] = "html";
+		// $config['newline'] = "\r\n";
+
+		// $this->email->initialize($config);
+
+		// $this->email->from('chrisrichrads@gmail.com', 'Admin');
+		// $this->email->to('baksajoshua09@gmail.com');
+		// $this->email->subject('Email Test');
+		// $this->email->message('Testing the email class.');
+		if($this->email->send()){
+			echo 'Email enviado';
+		}
+		else{
+			show_error($this->email->print_debugger());
+		}
+
+		// $time=date('Y-m-d');
+			
+		// $config = array(
+		// 	'protocol' 	=> "smtp",
+		// 	'smtp_host' => "ssl://smtp.googlemail.com",
+		// 	'smtp_port' => 465,
+		// 	'smtp_user' => "chrisrichrads@gmail.com",
+		// 	'smtp_pass' => "joshuaSUN",
+		// 	'newline' 	=> "\r\n"
+		// 	);
+		// // echo $email."<pre>";print_r($config);die();
+		// $this->load->library('email', $config);
+		
+		// $this->email->from('chrisrichrads@gmail.com', 'STRATHMORE UNIVERSITY NOTIFICATION');
+		// $this->email->to('baksajoshua09@gmail.com');
+		// $this->email->subject('WELCOME TO STRATHMORE UNIVERSITY');
+		// $this->email->message('This is a test Message from Star safaris to see if it actually works.');
+		
+		
+		// if($this->email->send())
+		// 	{	
+		// 		// $this->admin_model->store_sent_email($recipient, $subject, $message, $time);
+		// 		// $this->load->view('students_view');
+		// 		print "Email sent";
+				
+		// 	} else 
+		// 	{
+		// 		show_error($this->email->print_debugger());
+		// 	}
+	}
+
+
 	function logout()
 	{
 		$this->session->sess_destroy();

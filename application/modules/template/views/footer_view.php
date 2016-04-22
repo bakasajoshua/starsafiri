@@ -70,5 +70,4 @@
     <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
   <!-- </div> -->
   </body>
-
 </html>

@@ -43,6 +43,17 @@ class post extends MY_Controller {
 
 		echo $post;
 	}
+
+	function get_refreshedComments($id){
+		$getComments = $this->post_model->refreshedComments($id);
+
+		echo $getComments;
+	}
+
+	function update_comment_count($id)
+	{
+		echo $this->post_model->update_comments_count($id);
+	}
 	
 	function likes($id)
 	{
