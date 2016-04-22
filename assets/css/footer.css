@@ -15,6 +15,7 @@
 
 footer {
 	background:#b1b0b0;
+	/*display: block;*/
 }
 footer .panel {
 	box-shadow: none;

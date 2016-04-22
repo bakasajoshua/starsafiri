@@ -41,7 +41,7 @@
                       <h5 class="title"><span>Don't hesitate to contact us!</span></h5>
                       <p> Please give us time to let <strong>JoindesignTrick</strong> know about any problems or suggestions what you have.</p>
                       <div class="clear"> </div>
-                      <a class="btn btn-default btn-sm" href="#">Contact with us</a> </div>
+                      <a class="btn btn-default btn-sm" href="#" data-toggle="modal" data-target="#contact">Contact with us</a> </div>
                   </div>
                 </div>
               </div>
@@ -54,8 +54,8 @@
       <div class="copyright" style="min-width: 100%;">
         <div class="container">
           <div class="row copyright-img">
-            <div class="col-lg-4 col-sm-4"> Total Control True Independence </div>
-            <div class="col-lg-8 col-sm-8 text-right" id="footertext"> Copyright © 2014 JoindesignTrick Inc </div>
+            <div class="col-lg-4 col-sm-4"> Your best travel experience </div>
+            <div class="col-lg-8 col-sm-8 text-right" id="footertext"> Copyright © <?php echo date("Y")?> Star Safiri Inc. </div>
           </div>
         </div>
       </div>
