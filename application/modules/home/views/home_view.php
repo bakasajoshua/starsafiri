@@ -6,6 +6,7 @@
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
@@ -34,6 +35,16 @@
               <h1 style="color:#1dcb6c;">Share Your Experience</h1>
               <p>Share your travel experience: Holidays & vacations, getaways and adventure destinations.</p>
               <p><a class="btn btn-lg btn-primary" href="<?php echo base_url();?>signup" role="button">Sign up today</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="fourth-slide" src="assets/slides/slide-07.jpg" alt="Fourth slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 style="color:#1dcb6c;">View other people's experiences</h1>
+              <p>Share your travel experience: Holidays & vacations, getaways and adventure destinations.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
             </div>
           </div>
         </div>

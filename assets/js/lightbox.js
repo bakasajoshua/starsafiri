@@ -1,3 +1,4 @@
+
 $(document).ready(function() {              
     $('i.glyphicon-thumbs-up, i.glyphicon-thumbs-down').click(function(){    
         var $this = $(this),
@@ -10,6 +11,5 @@ $(document).ready(function() {
     $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
         event.preventDefault();
         $(this).ekkoLightbox();
-});  
-});                                        
-
+    });                                        
+}); 
