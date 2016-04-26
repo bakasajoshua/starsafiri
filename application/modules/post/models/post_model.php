@@ -14,7 +14,8 @@ class post_model extends MY_Model{
 	}
 
 	function add_posts(){
-		echo Date('Y-m-dH-i-s');
+		$upload = FALSE;
+
 		$upload_path = '././assets/uploads/';
 		$files = $_FILES['cover'];
 
@@ -29,26 +30,34 @@ class post_model extends MY_Model{
 
     		$prefix = 'IMG'.Date('Y-m-dH-i-s').md5($this->session->userdata('user_id'));
     		$absolute_path = '././assets/uploads/'.$prefix.'.'.$file_ext;
-    		move_uploaded_file($temp_path, $upload_path.$image_name);
-    		rename($upload_path.$image_name, $absolute_path);
+    		$upload = move_uploaded_file($temp_path, $upload_path.$image_name);
 
-    		$new_path = $this->thumbnail_creator($absolute_path,300,290);
+    		if ($upload) {
+    			rename($upload_path.$image_name, $absolute_path);
 
-    		$path = base_url().'assets/uploads/'.$prefix.'.'.$file_ext;
+	    		$new_path = $this->thumbnail_creator($absolute_path,300,290);
+	    		$path = base_url().'assets/uploads/'.$prefix.'.'.$file_ext;
+
+	    		$user_id = $this->session->userdata('user_id');
+				$description = $this->input->post('post');
+				$location = $this->input->post('location');
+
+				$sql = "INSERT INTO `posts`
+							(`description`,`location`,`image`,`user_id`)
+						VALUES
+							('$description','$location','$path','$user_id')";
+
+				$insert = $this->db->query($sql);
+    		}else {
+    			$insert = FALSE;
+			}
+
+    		
     		
 		}else{
 			print "Image format not supported";
 		}
-		$user_id = $this->session->userdata('user_id');
-		$description = $this->input->post('post');
-		$location = $this->input->post('location');
-
-		$sql = "INSERT INTO `posts`
-					(`description`,`location`,`image`,`user_id`)
-				VALUES
-					('$description','$location','$path','$user_id')";
-
-		$insert = $this->db->query($sql);
+		
 
 		return $insert;
 	}
@@ -84,26 +93,27 @@ class post_model extends MY_Model{
 				$likes = $likes[0]['likes'];
 				$comments = $comments[0]['comments'];
 				
-				$li .= '<article class="col-xs-12 col-sm-6 col-md-3">
+				$li .= '<article class="col-xs-12 col-sm-6 col-md-4">
 			            <div class="panel panel-default">
 			                <div class="panel-body">
 			                    <a href="#" title="Nature Portfolio" class="zoom" data-title="Amazing Nature" data-footer="The beauty of nature" data-type="image" data-toggle="lightbox">
-			                        <img src="'.$value['image'].'" alt="Nature Portfolio" style="height:150px;" />
+			                        <img src="'.$value['image'].'" alt="Nature Portfolio" style="height:180px;" />
 			                        <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
 			                    </a>
 			                </div>
 			                <div class="panel-footer">
 			                    <h4><a href="#" title="">'.$value['first_name'].' '.$value['last_name'].'</a></h4>
-			                    <div class="row">
-			                    <span class="">
-			                    	<a href="javascript:void(0);" id="like_button'.$value['post_id'].'" onclick="like_button_clicked('.$value['post_id'].')" class="btn btn-default">
-			                        	<i id="like1" class="glyphicon glyphicon-thumbs-up"></i> <div id="like1-bs3" >'.$likes.'</div>
-			                        </a>
-			                        <a href="javascript:void(0);" id="comment_button'.$value['post_id'].'" onclick="comment_button_clicked('.$value['post_id'].')" data-remote="false" data-toggle="modal" data-target="#myModal" class="btn btn-default">
-									    <i id="dislike1" class="glyphicon glyphicon-comment" style="color:blue;"></i> <div id="dislike1-bs3">'.$comments.'</div>
-									</a>
-			                        
-			                    </span>
+			                    <p>'.$value['description'].'</p>
+			                    <p style="margin-bottom:0px;margin-top:10px;border:0px;"><i class="glyphicon glyphicon-map-marker"></i>'.$value['location'].'</p>
+			                    <div class="row" style="margin:0.1em;border:0px;">
+				                    <span class="">
+				                    	<a href="javascript:void(0);" id="like_button'.$value['post_id'].'" onclick="like_button_clicked('.$value['post_id'].')" class="btn btn-default">
+				                        	<i id="like1" class="glyphicon glyphicon-thumbs-up"></i> <div id="like1-bs3" >'.$likes.'</div>
+				                        </a>
+				                        <a href="javascript:void(0);" id="comment_button'.$value['post_id'].'" onclick="comment_button_clicked('.$value['post_id'].')" data-remote="false" data-toggle="modal" data-target="#myModal" class="btn btn-default">
+										    <i id="dislike1" class="glyphicon glyphicon-comment" style="color:blue;"></i> <div id="dislike1-bs3">'.$comments.'</div>
+										</a>
+				                    </span>
 			                    </div>
 			                </div>
 			            </div>

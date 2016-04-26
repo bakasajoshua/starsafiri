@@ -26,8 +26,12 @@ class post extends MY_Controller {
 	{
 		$insert = $this->post_model->add_posts();
 
-		if(!$insert){print "An error occured as the product was being inserted please try again or if the problem persist contact the administrator.!!";}
-    	else{redirect(base_url().'post');}
+		if(!$insert)
+		{
+			print "An error occured as the post was being added. Please try again later!!";
+		} else{
+			redirect(base_url().'post');
+		}
 	}
 
 	function addcomment()

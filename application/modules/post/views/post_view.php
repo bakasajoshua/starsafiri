@@ -17,7 +17,7 @@
 			<div class="panel panel-default">
 			  	<div class="panel-body">
 				    <form method="post" action="<?php echo base_url();?>post/submit" enctype="multipart/form-data">
-				    	<input id="file-0a" class="file" name="cover" type="file" multiple data-min-file-count="1">
+				    	<input id="file-0a" class="file" name="cover" type="file" multiple data-min-file-count="1" value="Upload Photo">
 				    	
 				    	<div class="input-group">
 				    		<textarea class="form-control" name="post" id="post" placeholder="Write a post..." cols="50" required></textarea>
@@ -267,11 +267,3 @@ $(document).ready(function() {
         });
     }
 </script>
-
-            
-                
-                  
-                    
-                    
-                
-            
