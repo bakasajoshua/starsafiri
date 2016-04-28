@@ -16,18 +16,13 @@
                       <h5 class="title"><span>Main Navigation</span></h5>
                       <div class="menu-main-menu-container">
                         <ul class="nav nav-footer" id="menu-main-menu-1">
-                          <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14 current_page_item menu-item-16"><a href="http://localhost/wpJoinRedHawk/">Home</a></li>
-                          <li><a href="#">About Us</a></li>
-                          <li><a href="#">Service Support Model</a></li>
-                          <li><a href="#">Payouts And Fees</a></li>
-                          <li><a href="#">Practice Models</a></li>
-                          <li><a href="#">Services</a></li>
-                          <li><a href="#">Join With Us</a></li>
-                          <li><a href="#">Contact Us</a></li>
+                          <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14 current_page_item menu-item-16"><a href="<?php echo base_url();?>">Home</a></li>
+                          <li><a href="#" data-toggle="modal" data-target="#aboutus">About Us</a></li>
+                          <li><a href="#" data-toggle="modal" data-target="#contact">Contact Us</a></li>
                         </ul>
                       </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6">
+                    <!-- <div class="col-lg-3 col-sm-6">
                       <h5 class="title"><span>Site map</span></h5>
                       <div class="menu-footer-sitemap-container">
                         <ul class="nav nav-footer" id="menu-footer-sitemap">
@@ -36,12 +31,12 @@
                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-89" id="menu-item-89"><a href="#">About Us</a></li>
                         </ul>
                       </div>
-                    </div>
-                    <div class="col-lg-3  col-sm-6">
-                      <h5 class="title"><span>Don't hesitate to contact us!</span></h5>
-                      <p> Please give us time to let <strong>JoindesignTrick</strong> know about any problems or suggestions what you have.</p>
+                    </div> -->
+                    <div class="col-lg-6  col-sm-6">
+                      <h5 class="title"><span>Contact us!</span></h5>
+                      <p> Please give us time to let <strong>StarSafiri</strong> know about any problems or suggestions what you have.</p>
                       <div class="clear"> </div>
-                      <a class="btn btn-default btn-sm" href="#" data-toggle="modal" data-target="#contact">Contact with us</a> </div>
+                      <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#contact">Contact us</a> </div>
                   </div>
                 </div>
               </div>

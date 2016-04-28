@@ -16,6 +16,7 @@ class home extends MY_Controller {
 		$data['details'] = $this->get_personal_details();
 
 		$data = array_merge($data,$this->load_libraries(array('custom','carousel','lightbox','lightboxjs','bootmin','footer')));
+		// echo "<pre>";print_r($data);die();
 		$this->template($data);
 	}
 

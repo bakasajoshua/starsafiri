@@ -72,6 +72,7 @@
       <div class="modal-body">
         <div class="container">
         	<div class="row" id="comments">
+          Please wait. Loading...
         		<!-- <div class="col-md-4">
         			<img src="<?php echo base_url();?>assets/uploads/images.jpg" style="margin-bottom: 0.5em;">
         			<br>

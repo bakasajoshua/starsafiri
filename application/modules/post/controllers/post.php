@@ -28,7 +28,7 @@ class post extends MY_Controller {
 
 		if(!$insert)
 		{
-			print "An error occured as the post was being added. Please try again later!!";
+			print "An error occured as the post was being added. Please try a smaller photot or again later!!";
 		} else{
 			redirect(base_url().'post');
 		}

@@ -14,12 +14,25 @@
               <img style="max-height: 100%; object-fit: contain; max-width: auto; margin: 0;" src="assets/logo/afric_main.png">
             </a>
           </div>
+
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-              <?php if($this->session->userdata('is_logged_in')) {?>
-              <li><a href="<?php echo base_url();?>post">Posts</a></li>
-              <?php } ?>
+            <?php
+              $homeclass = '';
+              if ($_SERVER['REQUEST_URI'] == '' || $_SERVER['REQUEST_URI'] == '/starsafiri/home' || $_SERVER['REQUEST_URI'] == '/starsafiri' || $_SERVER['REQUEST_URI'] == '/starsafiri/' || $_SERVER['REQUEST_URI'] == '/starsafiri/home/'){
+                $homeclass = 'active';
+              }
+            ?>
+              <li class="<?php echo $homeclass; ?>"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+            <?php
+              $postclass = '';
+              if ($_SERVER['REQUEST_URI'] == '' || $_SERVER['REQUEST_URI'] == '/home' || $_SERVER['REQUEST_URI'] == '/starsafiri' || $_SERVER['REQUEST_URI'] == '/starsafiri/'){
+                    $postclass = 'active';
+                }
+              if($this->session->userdata('is_logged_in')) {
+              ?>
+              <li class="<?php echo $postclass; ?>"><a href="<?php echo base_url();?>post">Posts</a></li>
+            <?php } ?>
               <!-- <li><a href="#events">Upcoming Events</a></li> -->
               <li><a href="#about" data-toggle="modal" data-target="#about">About us</a></li>
               <li><a href="#contact" data-toggle="modal" data-target="#contact"><span class="glyphicon glyphicon-phone-alt"></span> Contact us</a></li>
