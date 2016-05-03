@@ -17,8 +17,9 @@
                       <div class="menu-main-menu-container">
                         <ul class="nav nav-footer" id="menu-main-menu-1">
                           <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14 current_page_item menu-item-16"><a href="<?php echo base_url();?>">Home</a></li>
-                          <li><a href="#" data-toggle="modal" data-target="#aboutus">About Us</a></li>
-                          <li><a href="#" data-toggle="modal" data-target="#contact">Contact Us</a></li>
+                          <li><a href="#">Advertise</a></li>
+                          <li><a href="#" data-toggle="modal" data-target="#about">About Us</a></li>
+                          
                         </ul>
                       </div>
                     </div>
@@ -33,10 +34,11 @@
                       </div>
                     </div> -->
                     <div class="col-lg-6  col-sm-6">
-                      <h5 class="title"><span>Contact us!</span></h5>
-                      <p> Please give us time to let <strong>StarSafiri</strong> know about any problems or suggestions what you have.</p>
+                      <h5 class="title"><span>Contact us</span></h5>
+                      <p> For feedback and suggestions; <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#contact">Contact us</a></p>
                       <div class="clear"> </div>
-                      <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#contact">Contact us</a> </div>
+                      
+                    </div>
                   </div>
                 </div>
               </div>
