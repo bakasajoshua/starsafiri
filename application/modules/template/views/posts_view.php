@@ -91,7 +91,6 @@
                       <li class="divider"></li>
                       <li class="dropdown-header" style="color:#52bcdc; font-weight: bold;">Advanced Options</li>
                       <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Manage my Account</a></li>
-                      <li><a href="#"><span class="glyphicon glyphicon-trash"></span> Delete Account</a></li>
                     </ul>
                   </div>
                 </li>

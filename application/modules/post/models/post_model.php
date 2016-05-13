@@ -93,11 +93,11 @@ class post_model extends MY_Model{
 				$likes = $likes[0]['likes'];
 				$comments = $comments[0]['comments'];
 				
-				$li .= '<article class="col-xs-12 col-sm-6 col-md-4">
+				$li .= '<article class="col-xs-12 col-sm-6 col-md-4" style="display:block;">
 			            <div class="panel panel-default">
 			                <div class="panel-body">
-			                    <a href="#" title="Nature Portfolio" class="zoom" data-title="Amazing Nature" data-footer="The beauty of nature" data-type="image" data-toggle="lightbox">
-			                        <img src="'.$value['image'].'" alt="Nature Portfolio" style="height:180px;" />
+			                    <a href="javascript:void(0);" onclick="comment_button_clicked('.$value['post_id'].')" data-remote="false" data-toggle="modal" data-target="#myModal" title="Nature Portfolio" class="zoom" data-title="Amazing Nature" data-footer="The beauty of nature" data-type="image" data-toggle="lightbox">
+			                        <img src="'.$value['image'].'" alt="Nature Portfolio" style="/*width:150px;height:180px;*/" />
 			                        <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
 			                    </a>
 			                </div>
@@ -276,6 +276,7 @@ class post_model extends MY_Model{
 
 		return $likes;
 	}
+
 
 
 }

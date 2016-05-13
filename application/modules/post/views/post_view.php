@@ -202,7 +202,8 @@ $(document).ready(function() {
     		});
 
 
-
+        img = $('#image'+1).width();
+        console.log(img);
   		// // Attach a submit handler to the form
     //   $( "button#submit" ).submit(function( event ) {
            

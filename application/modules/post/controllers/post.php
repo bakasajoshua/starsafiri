@@ -66,4 +66,27 @@ class post extends MY_Controller {
 		echo $update;
 	}
 
+	function trial_page()
+	{
+		$data['content_view'] = "post/post_test_view";
+		$data['title']="Posts";
+		$data['details'] = $this->get_personal_details();
+		$data['records'] = $this->post_model->get_posts();
+
+		$data = array_merge($data,$this->load_libraries(array('jquery','lightbox','lightboxjs','bootstrap-fileinput')));
+		// echo "<pre>";print_r($data);die();
+		$this->posts_template($data);
+	}
+
+	function thumbnail()
+	{
+		$img = 'http://localhost/starsafiri/assets/uploads/IMG2016-04-2019-11-52c4ca4238a0b923820dcc509a6f75849b.jpg';
+		$size = getimagesize("http://localhost/starsafiri/assets/uploads/IMG2016-04-2019-11-52c4ca4238a0b923820dcc509a6f75849b.jpg");
+		$aspect_ratio = ($size[0]/$size[1]);
+		echo "<pre>";print_r($aspect_ratio);
+		// $size = $this->post_model->thumbnail_resize($img);
+	}
+
+
+
 }
