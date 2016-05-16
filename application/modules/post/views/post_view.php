@@ -1,7 +1,12 @@
+<script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
 <style type="text/css">
 	.input-group{
 		margin-top: 0.5em;
 	}
+  *, *:before, *:after {box-sizing:  border-box !important;}
+
+
+
 	/*.user_name{
 	    font-size:14px;
 	    font-weight: bold;
@@ -33,10 +38,10 @@
 		<!-- End of Posting section -->
     <div class="mt40">
 
-		<section class="row">
-			<?php echo $records;?>
-        </section>
-	</div>
+  		<section class="row grid">
+  			<?php echo $records;?>
+      </section>
+	  </div>
 
 	<!-- Advertisment section-->
 	
@@ -128,6 +133,12 @@
  -->
 <script type="text/javascript">
 $(document).ready(function() {
+  $('.grid').masonry({
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: 200
+});
+
 	$('#file-fr').fileinput({
         language: 'fr',
         uploadUrl: '#',
@@ -202,8 +213,6 @@ $(document).ready(function() {
     		});
 
 
-        img = $('#image'+1).width();
-        console.log(img);
   		// // Attach a submit handler to the form
     //   $( "button#submit" ).submit(function( event ) {
            

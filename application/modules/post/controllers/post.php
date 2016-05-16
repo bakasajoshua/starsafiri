@@ -17,7 +17,7 @@ class post extends MY_Controller {
 		$data['records'] = $this->post_model->get_posts();
 
 		$data = array_merge($data,$this->load_libraries(array('jquery','lightbox','lightboxjs','bootstrap-fileinput')));
-		// echo "<pre>";print_r($data);die();
+		echo "<pre>";print_r($data);die();
 		$this->posts_template($data);
 
 	}
