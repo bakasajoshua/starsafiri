@@ -1,5 +1,4 @@
-<script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
-<style type="text/css">
+x<style type="text/css">
 	.input-group{
 		margin-top: 0.5em;
 	}

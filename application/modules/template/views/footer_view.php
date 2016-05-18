@@ -61,10 +61,10 @@
 <!-- </div> -->
 <!-- jQuery files that make the site run faster -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/jquery/jquery-2.2.3.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
   <!-- </div> -->
   </body>
 </html>
