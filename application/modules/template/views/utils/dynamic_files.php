@@ -18,18 +18,17 @@
 			echo "<".$cssTag." rel='stylesheet' href='".base_url()."assets/css/".$file."'/>\n";
 		}
 	}
-
 	if(is_array($js_files)){	
-		foreach($js_files as $file){
-			echo "<".$jsTag." src='".base_url()."assets/js/".$file."'".$jsTagType."></".$jsTag."/>\n";
+			foreach($js_files as $file){
+				echo "<".$jsTag." src='".base_url()."assets/js/".$file."'".$jsTagType."></".$jsTag."/>\n";
+			}
+
 		}
-
-	}
-
 	if(is_array($js_plugin_files)){
 			foreach($js_plugin_files as $file){
 				echo "<".$jsTag." src='".base_url()."assets/plugins/".$file."'".$jsTagType."></".$jsTag."/>\n";
 			}
 		}
+		
 
 ?>
