@@ -1,6 +1,4 @@
 <?php
-
-
 	$jsTag="script";
 	$jsTagType=" type='text/javascript'";
 
